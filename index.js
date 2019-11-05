@@ -8,10 +8,10 @@ app.get('/api', (req, res) =>
 
 // make express behave correctly in production environment
 if (process.env.NODE_ENV === 'production') {
-  // tell express to look for files in 'client/build' if it can't find them
+  // serve static files from the React app
   app.use(express.static('client/build'));
 
-  // tell express to serve up 'index.html' if it doesn't recignoze the route
+  // tell express to serve up 'index.html' if it doesn't recognize the route
   const path = require('path');
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
