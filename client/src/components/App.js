@@ -2,14 +2,18 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-const Landing = () => <h1>Landing!</h1>;
+import Header from './Header';
+import Landing from './Landing';
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         <div>
-          <Route path="/" exact component={Landing} />
+          <Header />
+          <div className="container">
+            <Route path="/" exact component={Landing} />
+          </div>
         </div>
       </BrowserRouter>
     </div>
