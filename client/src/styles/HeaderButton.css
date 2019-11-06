@@ -1,3 +1,4 @@
+/* each button */
 .header-button {
   color: inherit;
   display: flex;
@@ -7,37 +8,52 @@
   padding: 0 1vw;
 }
 
+/* every i tag child of a header button */
 .header-button > i {
   padding-right: 0.5vw;
 }
 
+/* header buttons on top header bar, excluding hamburger button */
+/* darken when hovered over */
 .header-top .header-button:hover {
   background-color: rgb(219, 58, 0);
 }
 
+/* header buttons on top header bar, excluding hamburger button */
+/* will be dark from hovering, then will lighten again on click */
 .header-top .header-button:active {
   background-color: rgb(255, 69, 0);
 }
 
-.mobile-menu-buttons .header-button:active {
-  background-color: rgb(255, 69, 0);
-}
-
 @media (max-width: 640px) {
+  /* all buttons - will target brand-logo*/
   .header-button {
     padding: 0 3vw;
     justify-content: center;
   }
-
+  /* every i tag child of a header button */
   .header-button > i {
     padding-right: 1.5vw;
+  }
+
+  /* dropdown menu buttons */
+  .mobile-menu-buttons .header-button {
+    padding: 0;
+    width: 50vw;
+    height: 5vh;
+  }
+
+  /* dropdown menu buttons */
+  /* will initially be dark, will lighten on click */
+  .mobile-menu-buttons .header-button:active {
+    background-color: rgb(255, 69, 0);
   }
 
   .header-top .header-button:hover {
     background-color: rgb(255, 69, 0);
   }
 
-  .header-top .header-button:active {
+  /* .header-top .header-button:active {
     background-color: rgb(219, 58, 0);
-  }
+  } */
 }
