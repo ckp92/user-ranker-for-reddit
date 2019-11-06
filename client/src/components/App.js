@@ -1,9 +1,10 @@
-import './App.css';
+import '../styles/App.css';
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header';
+import Header from './Header/Header';
 import Landing from './Landing';
+const Contact = () => <h1>Contact!</h1>;
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Header />
           <div className="container">
             <Route path="/" exact component={Landing} />
+            <Route path="/contact" exact component={Contact} />
           </div>
         </div>
       </BrowserRouter>

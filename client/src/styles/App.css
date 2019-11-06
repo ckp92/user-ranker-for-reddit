@@ -1,11 +1,13 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  color: #00264d;
   /* border: 1px solid black; */
 }
 
 .container {
   margin: 0 5%;
+  padding: 0 1rem;
   /* border: 1px solid black; */
 }
 

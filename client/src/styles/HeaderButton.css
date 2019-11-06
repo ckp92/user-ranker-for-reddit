@@ -1,0 +1,41 @@
+.header-button {
+  height: 100%;
+}
+.button-link {
+  color: white;
+  padding: 0 1rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.button-link:hover {
+  background-color: rgb(219, 58, 0);
+}
+
+.button-link:active {
+  background-color: rgb(255, 69, 0);
+}
+
+i {
+  margin-right: 5px;
+}
+
+@media (max-width: 640px) {
+  .button-link {
+    padding: 0 10%;
+    margin: 0;
+    /* border: 1px solid black; */
+  }
+
+  .button-link:hover {
+    background-color: rgb(255, 69, 0);
+  }
+
+  .button-link:active {
+    background-color: rgb(219, 58, 0);
+  }
+}
