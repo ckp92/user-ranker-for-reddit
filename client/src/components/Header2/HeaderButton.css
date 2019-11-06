@@ -1,0 +1,23 @@
+.header-button {
+  border: 1px solid black;
+  color: inherit;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1vw;
+}
+
+.header-button > i {
+  padding-right: 0.5vw;
+}
+
+@media (max-width: 640px) {
+  .header-button {
+    padding: 0 3vw;
+  }
+
+  .header-button > i {
+    padding-right: 1.5vw;
+  }
+}

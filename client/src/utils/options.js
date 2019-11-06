@@ -8,6 +8,12 @@ export const BRAND_OPTIONS = {
 export const MENU_OPTIONS = [
   {
     type: 'link',
+    path: '/docs',
+    icon: 'fas fa-book fa-lg',
+    content: 'Docs'
+  },
+  {
+    type: 'link',
     path: '/',
     icon: 'fas fa-file-alt fa-lg',
     content: 'CV'
