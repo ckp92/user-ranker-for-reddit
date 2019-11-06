@@ -1,6 +1,11 @@
+/* container for entire header */
+/* contains 2 divs: 1) the top bar, 2) dropdown menu */
 .header-container {
   color: white;
 }
+
+/* container for the top bar of the header (everything except dropdown menu */
+/* arrange its 2 divs horizontally with space in between */
 .header-top {
   padding: 0 5vw;
   background-color: rgb(255, 69, 0);
@@ -9,57 +14,87 @@
   height: 6vh;
 }
 
+/* left side of '.header-top'. Contains brand button component */
 .left {
   width: auto;
   display: flex;
 }
 
+/* right side of '.header-top'. Contains hamburger button div + desktop-size-screen header buttons div*/
 .right {
   display: flex;
   flex-direction: row;
 }
 
+/* div which contains the hamburger icon */
 .hamburger-button {
   display: none;
 }
 
+/* menu buttons shown when on desktop */
 .menu-buttons {
   display: flex;
   justify-content: center;
 }
 
+/* dropdown menu ONLY WHEN HAMBURGER IS NOT CLICKED/OPEN */
+/* hides dropdown menu */
+/* class will be applied to dropdown menu when the hamburger isn't selected */
+/* i.e. ALWAYS in desktop mode */
+/* and in mobile mode when dropdown menu isn't selected, setting it to 'closed' by default */
 .mobile-menu-closed {
   display: none;
 }
 
 @media (max-width: 640px) {
+  /* container for entire header */
+  /* contains 2 divs: 1) the top bar, 2) dropdown menu */
+  /* dropdown menu will now be visible underneath top bar*/
+  /* flex, column, flex-end will keep dropdown menu underneath and will align its 2 children to the right */
+  /* good because we can set top bar width to 100vw so it DOESN'T move to the right (it stays put)*/
+  /* + can set the dropdown menu width to less than 100vw so it DOES push to the right (goes below hamburger  */
   .header-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
   }
 
+  /* container for the top header bar */
+  /* will remove the padding used on desktop version */
+  /* will increase height (compared to desktop) in terms of vh */
+  /* set width as described in '.header-container' comments */
   .header-top {
     padding: 0;
     height: 7vh;
     width: 100vw;
   }
 
+  /* hamburger-button div on top bar */
+  /* use flex and align to keep icon in the middle */
+  /* use padding to compensate for removal of padding of '.header-top' */
   .hamburger-button {
-    background-color: rgb(255, 69, 0);
     display: flex;
     align-items: center;
     padding: 0 4vw;
   }
 
+  /* header buttons on top bar, used for desktop version (excludes brand-button and hamburger-button) */
+  /* hide these in mobile mode */
   .menu-buttons {
     display: none;
   }
 
+  /* hamburger-button ONLY WHEN CLICKED */
+  /* when clicked, it will darken to match dropdown color */
   .hamburger-open {
     background-color: rgb(219, 58, 0);
   }
 
+  /* dropdown menu - only visible when hamburger is clicked/open*/
+  /* will be darker by default to match hamburger darkening on click/open */
+  /* position absolute will put it IN FRONT OF EVERYTHING (in terms of z-axis) and in TOP LEFT of screen */
+  /* LEFT is counteracted by '.header-container flex-end' */
+  /* TOP is couteracted by top 7vh, putting it just below top bar */
   .mobile-menu-buttons {
     background-color: rgb(219, 58, 0);
     text-align: center;

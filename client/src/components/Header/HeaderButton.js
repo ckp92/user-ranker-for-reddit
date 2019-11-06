@@ -13,6 +13,7 @@ class HeaderButton extends Component {
         </Link>
       );
     } else if (type === 'a') {
+      // if anchor tag, set target=blank so all external links open in new tab
       return (
         <a href={path} target="blank" className="header-button">
           <i className={icon} />

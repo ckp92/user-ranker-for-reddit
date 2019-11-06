@@ -26,17 +26,21 @@
 }
 
 @media (max-width: 640px) {
-  /* all buttons - will target brand-logo*/
+  /* all header buttons but because of more specific selector below, 'padding' will just target brand-button */
+  /* increase padding because the header padding has been removed from each side */
   .header-button {
     padding: 0 3vw;
     justify-content: center;
   }
   /* every i tag child of a header button */
+  /* use more spacing in mobile version b/c screen is smaller */
   .header-button > i {
-    padding-right: 1.5vw;
+    padding-right: 2vw;
   }
 
   /* dropdown menu buttons */
+  /* will be smaller than desktop buttons */
+  /* width < 100vw will allow buttons to be pushed to the right side of screen */
   .mobile-menu-buttons .header-button {
     padding: 0;
     width: 50vw;
@@ -49,10 +53,12 @@
     background-color: rgb(255, 69, 0);
   }
 
-  /* .header-top .header-button:hover {
+  /* brand button - to change color on click and revert back */
+  .header-top .header-button:hover {
     background-color: rgb(255, 69, 0);
-  } */
+  }
 
+  /* brand button - to change color on click and revert back */
   .header-top .header-button:active {
     background-color: rgb(219, 58, 0);
   }

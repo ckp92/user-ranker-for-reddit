@@ -42,22 +42,27 @@ class Header extends Component {
         // if anywhere in the header is clicked while dropdown is open, dropdown will close
         onClick={this.closeDropdownIfOpen}
       >
+        {/* top bar */}
         <div className="header-top">
           <div className="left">
-            <HeaderButton id="branding" options={BRAND_OPTIONS} />
+            {/* HEADER BUTTON */}
+            <HeaderButton options={BRAND_OPTIONS} />
           </div>
           <div className="right">
+            {/* HAMBURGER BUTTON */}
             <div
-              // when hamburger is clicke: if dropdown is closed, invoke function to open dropdown
+              // when hamburger is clicked: if dropdown is closed, invoke function to open dropdown
               // click-handler on 'header-container' div will ensure it closes when clicked when open.
               onClick={this.openDropdownIfClosed}
               className={this.toggleHamburgerMenuClass()}
             >
               <i className="fas fa-bars fa-2x" />
             </div>
+            {/* DESKTOP MENU BUTTONS */}
             <div className="menu-buttons">{this.renderMenuButtons()}</div>
           </div>
         </div>
+        {/* DROPDOWN BUTTONS */}
         <div className={this.toggleMobileMenuClass()}>
           {this.renderMenuButtons()}
         </div>
