@@ -49,11 +49,11 @@
     background-color: rgb(255, 69, 0);
   }
 
-  .header-top .header-button:hover {
+  /* .header-top .header-button:hover {
     background-color: rgb(255, 69, 0);
-  }
-
-  /* .header-top .header-button:active {
-    background-color: rgb(219, 58, 0);
   } */
+
+  .header-top .header-button:active {
+    background-color: rgb(219, 58, 0);
+  }
 }
