@@ -3,29 +3,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class HeaderButton extends Component {
-  // renders link/anchor depending on props
   renderContent = () => {
     const { type, path, icon, content } = this.props.options;
     if (type === 'link') {
       return (
-        <Link to={path} className="button-link">
+        <Link to={path} className="header-button">
           <i className={icon} />
-          <h3 className="link-content">{content}</h3>
+          <h3 className="button-content">{content}</h3>
         </Link>
       );
-    } else {
+    } else if (type === 'a') {
       return (
-        <a href={path} target="blank" className="button-link">
+        <a href={path} target="blank" className="header-button">
           <i className={icon} />
-          <h3 className="link-content">{content}</h3>
+          <h3 className="button-content">{content}</h3>
         </a>
       );
+    } else {
+      return;
     }
   };
 
   render() {
-    console.log(this.props);
-    return <div className="header-button">{this.renderContent()}</div>;
+    return this.renderContent();
   }
 }
 

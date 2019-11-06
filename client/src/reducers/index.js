@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import hamburgerReducer from './hamburgerReducer';
 
 export default combineReducers({
-  test: () => 123
+  hamburgerOn: hamburgerReducer
 });
