@@ -43,6 +43,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    /* border: 1px solid black; */
+  }
+
+  .left > .header-button {
+    /* border: 1px solid black; */
+    width: 100%;
   }
 
   .right {
