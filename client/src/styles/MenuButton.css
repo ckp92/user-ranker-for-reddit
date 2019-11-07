@@ -1,0 +1,18 @@
+.menu-button i {
+  padding-right: 0.5vw;
+}
+
+@media (max-width: 640px) {
+  .menu-button {
+    padding: 0 6.25vw;
+    font-size: small;
+  }
+
+  .menu-button i {
+    padding-right: 2vw;
+  }
+
+  .menu-button:active {
+    background-color: rgb(255, 69, 0);
+  }
+}

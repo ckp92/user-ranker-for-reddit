@@ -1,6 +1,9 @@
-import { CLICK_HAMBURGER_MENU } from './types';
+import { CLICK_HAMBURGER, CLOSE_HEADER_NOTIFICATION } from './types';
 
-export const toggleHamburgerMenu = () => {
-  console.log('action creator triggered');
-  return { type: CLICK_HAMBURGER_MENU };
+export const clickHamburger = () => {
+  return { type: CLICK_HAMBURGER };
+};
+
+export const closeHeaderNotification = () => {
+  return { type: CLOSE_HEADER_NOTIFICATION };
 };

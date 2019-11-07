@@ -1,5 +1,4 @@
 export const BRAND_OPTIONS = {
-  type: 'link',
   path: '/',
   icon: 'fab fa-reddit-alien fa-2x',
   content: 'USER RANKER'

@@ -1,0 +1,40 @@
+.header-notification {
+  background-color: rgb(219, 58, 0);
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  height: 2vh;
+}
+
+.main-content {
+  position: absolute;
+  padding: 0.2vh 0;
+}
+
+.close {
+  color: #00264d;
+  background-color: inherit;
+  border: none;
+  position: relative;
+  right: -48%;
+  padding: 0 0.5vw;
+}
+
+.close:hover {
+  background-color: rgb(190, 51, 0);
+}
+
+.close:active {
+  background-color: inherit;
+}
+
+.close:focus {
+  outline: none;
+}
+
+/* hide in mobile mode */
+@media (max-width: 640px) {
+  .header-notification {
+    display: none;
+  }
+}

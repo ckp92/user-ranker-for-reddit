@@ -1,0 +1,19 @@
+.dropdown-modal {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .dropdown-modal {
+    /* border: 1px solid black; */
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 7vh;
+    height: 93vh;
+  }
+
+  .dropdown-modal-buttons {
+    /* border: 1px solid black; */
+    background-color: rgb(219, 58, 0);
+  }
+}
