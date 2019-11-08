@@ -23,7 +23,7 @@ module.exports = app => {
     // message object
     const data = {
       from: `${senderName} <${senderEmail}>`,
-      to: '',
+      to: 'cpatel818@gmail.com',
       subject: subjectLine(),
       text: body
     };
