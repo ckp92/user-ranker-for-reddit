@@ -23,7 +23,7 @@ module.exports = app => {
     // message object
     const data = {
       from: `${senderName} <${senderEmail}>`,
-      to: 'cpatel818@gmail.com',
+      to: '',
       subject: subjectLine(),
       text: body
     };
@@ -42,27 +42,27 @@ module.exports = app => {
     // log mailgun response
     console.log(info);
 
-    if (info) {
-      // add to db now it has been sent. don't want to add to db
-      const email = await new Email({
-        senderName,
-        senderEmail,
-        subject: data.subject,
-        body
-      })
-        .save()
-        .catch(err => {
-          console.error(err);
-          res.send({
-            error: err,
-            message:
-              "The email was sent but we couldn't save it to the database"
-          });
+    // will save to db even if not sent.
+    // if not sent, will set successfullyDelivered as false
+    // useful for bugs / analytics
+    const email = await new Email({
+      senderName,
+      senderEmail,
+      subject: data.subject,
+      body,
+      successfullyDelivered: !!info // if not sent, will be undefined, -> false
+    })
+      .save()
+      .catch(err => {
+        console.error(err);
+        res.send({
+          error: err,
+          message: "Couldn't save email to the database"
         });
+      });
 
-      // log mongodb response
-      console.log(email);
-    }
+    // log mongodb response
+    console.log(email);
 
     res.send({});
   });
