@@ -6,15 +6,16 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: #00264d;
+  /* background-color: rgb(216, 236, 253); */
 }
 
 .container {
-  margin: 0 5%;
-  padding: 0 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 640px) {
-  .container {
-    margin: 0 3%;
+  body {
+    background-color: aliceblue;
   }
 }

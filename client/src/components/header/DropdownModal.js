@@ -1,7 +1,7 @@
 import '../../styles/DropdownModal.css';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { MENU_OPTIONS } from '../../utils/options';
+import { MENU_OPTIONS } from './options';
 import MenuButton from './MenuButton';
 
 class Modal extends Component {

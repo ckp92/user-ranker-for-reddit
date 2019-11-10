@@ -18,7 +18,7 @@ db.once('open', () => console.log('Database Connected'));
 const app = express();
 
 // to parse form data
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // ROUTING
 // test

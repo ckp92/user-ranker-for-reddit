@@ -1,13 +1,14 @@
 import '../../styles/Header.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { clickHamburger } from '../../actions';
-import { BRAND_OPTIONS, MENU_OPTIONS } from '../../utils/options';
+import { clickHamburger, closeModal } from '../../actions';
+import { BRAND_OPTIONS, MENU_OPTIONS } from './options';
 
 import BrandButton from './BrandButton';
 import MenuButton from './MenuButton';
 import HeaderNotification from './HeaderNotification';
 import DropdownModal from './DropdownModal';
+import Modal from '../Modal';
 
 class Header extends Component {
   // Render Desktop-Size Menu Buttons
@@ -62,9 +63,30 @@ class Header extends Component {
     }
   };
 
+  renderModal = () => {
+    const { emailStatus, closeModal } = this.props;
+    switch (emailStatus) {
+      case 'success':
+        return (
+          <Modal title="Yay!" message="Message Sent" onDismiss={closeModal} />
+        );
+      case 'error':
+        return (
+          <Modal
+            title="Oops!"
+            message="There was a problem sending your message. Please try again."
+            onDismiss={closeModal}
+          />
+        );
+      default:
+        return;
+    }
+  };
+
   render() {
     return (
       <header className="header">
+        {this.renderModal()}
         <nav
           aria-label="top-navbar"
           className="top-bar"
@@ -98,14 +120,19 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = ({ hamburgerOn, headerNotificationOn }) => {
+const mapStateToProps = ({
+  hamburgerOn,
+  headerNotificationOn,
+  emailStatus
+}) => {
   return {
     hamburgerOn,
-    headerNotificationOn
+    headerNotificationOn,
+    emailStatus
   };
 };
 
 export default connect(
   mapStateToProps,
-  { clickHamburger }
+  { clickHamburger, closeModal }
 )(Header);

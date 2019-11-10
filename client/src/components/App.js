@@ -2,10 +2,10 @@ import '../styles/App.css';
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from './Header/Header';
+import Header from './header/Header';
 import Landing from './Landing';
+import Contact from './contact/Contact';
 const Docs = () => <h1>Docs</h1>;
-const Contact = () => <h1>Contact!</h1>;
 
 class App extends Component {
   render() {

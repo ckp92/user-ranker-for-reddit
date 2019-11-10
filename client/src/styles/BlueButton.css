@@ -1,0 +1,16 @@
+.blue-button {
+  border: none;
+  outline: none;
+  background-color: #0079d3;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 1vh 1vw;
+}
+
+.blue-button:hover {
+  background-color: #7fbce9;
+}
+.blue-button:active {
+  background-color: #0079d3;
+}

@@ -1,0 +1,105 @@
+.contact-form-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.review-heading {
+  width: 100%;
+  padding: 0 5vw;
+}
+
+.contact-form-review-content {
+  border: 2px solid #00274d;
+  width: 90%;
+  background-color: aliceblue;
+  padding: 2vh 0;
+}
+
+.contact-form-review-content h3 {
+  align-self: center;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 1vh;
+}
+
+.review {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-field {
+  /* border: 1px solid #00274d7c; */
+  background-color: white;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1vh 0;
+}
+
+.review-field:last-of-type {
+  padding-bottom: 1vh;
+}
+
+.review-field h4 {
+  margin: 1vh 0 0 0;
+}
+
+.body p {
+  margin: 1vh 0 0 0;
+  align-self: flex-start;
+  margin-left: 2vw;
+}
+
+.review-buttons {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .contact-form-review-content {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  .review-heading {
+    padding: 0;
+    text-align: center;
+  }
+
+  .review-heading h1 {
+    margin: 2vh 0;
+    font-size: 190%;
+  }
+
+  .contact-form-review-content h3 {
+    padding: 0 5vw;
+    text-align: center;
+    font-size: 100%;
+    margin: 0;
+  }
+
+  .review-field {
+    width: 90%;
+    padding: 0.5vh 2vw;
+  }
+
+  .review-field:last-of-type {
+    padding-bottom: 2vh;
+  }
+
+  .review-field p {
+    font-size: 90%;
+  }
+
+  .review-buttons {
+    margin-top: 1vh;
+  }
+}
