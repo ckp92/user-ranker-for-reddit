@@ -15,6 +15,7 @@
   width: 90%;
   background-color: aliceblue;
   padding: 2vh 0;
+  margin-bottom: 2vh;
 }
 
 .contact-form-review-content h3 {
@@ -101,5 +102,51 @@
 
   .review-buttons {
     margin-top: 1vh;
+  }
+}
+
+@media (max-height: 560px) {
+  .contact-form-review-content {
+    margin-bottom: 8vh;
+  }
+
+  .review-field {
+    width: 90%;
+    padding: 4vh 1vw;
+  }
+
+  .review-field p {
+    margin: 1vh 0 0 0;
+  }
+
+  .review-field:last-of-type {
+    padding-bottom: 4vh;
+  }
+
+  .review-buttons {
+    margin-top: 2vh;
+  }
+}
+
+@media (max-height: 280px) {
+  .contact-form-review-content {
+    margin-bottom: 16vh;
+  }
+
+  .review-field {
+    width: 90%;
+    padding: 8vh 1vw;
+  }
+
+  .review-field p {
+    margin: 2vh 0 0 0;
+  }
+
+  .review-field:last-of-type {
+    padding-bottom: 8vh;
+  }
+
+  .review-buttons {
+    margin-top: 4vh;
   }
 }

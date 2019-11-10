@@ -14,3 +14,22 @@
 .blue-button:active {
   background-color: #0079d3;
 }
+
+@media (max-width: 640px) {
+  .blue-button {
+    padding: 2vh 4vw;
+  }
+}
+
+@media (max-height: 560px) {
+  .blue-button {
+    padding: 4vh 4vw;
+    font-size: 100%;
+  }
+}
+
+@media (max-height: 280px) {
+  .blue-button {
+    padding: 8vh 4vw;
+  }
+}

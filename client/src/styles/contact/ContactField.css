@@ -51,3 +51,35 @@
     padding: 1.5vh 2vw;
   }
 }
+
+@media (max-height: 560px) {
+  .contact-field input,
+  .contact-field textarea,
+  .contact-field label {
+    width: 90%;
+  }
+
+  .contact-field input,
+  .contact-field textarea {
+    padding: 4vh 2vw;
+    margin-top: 1vh;
+  }
+
+  .contact-field textarea {
+    height: 40vh;
+    line-height: 4vh;
+  }
+}
+
+@media (max-height: 280px) {
+  .contact-field input,
+  .contact-field textarea {
+    padding: 8vh 2vw;
+    margin-top: 2vh;
+  }
+
+  .contact-field textarea {
+    height: 80vh;
+    line-height: 8vh;
+  }
+}

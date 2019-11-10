@@ -23,7 +23,7 @@
 
 .modal-inner {
   background-color: white;
-  padding: 2vh 0;
+  padding: 2vh 2vw;
   min-height: 15vh;
   min-width: 25vw;
   margin-top: 10vh;
@@ -47,5 +47,18 @@
     width: 75vw;
     height: 17vh;
     justify-content: space-between;
+  }
+}
+
+@media (max-height: 560px) {
+  .modal-inner {
+    height: 40vh;
+    width: 40vw;
+  }
+}
+
+@media (max-height: 280px) {
+  .modal-inner {
+    height: 80vh;
   }
 }
