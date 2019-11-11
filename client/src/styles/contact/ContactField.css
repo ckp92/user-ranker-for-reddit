@@ -45,9 +45,12 @@
     text-align: left;
   }
 
-  .contact-field input,
-  .contact-field textarea {
+  .contact-field input {
     padding: 1.5vh 2vw;
+  }
+
+  .contact-field textarea {
+    padding: 1vh 2vw;
   }
 }
 

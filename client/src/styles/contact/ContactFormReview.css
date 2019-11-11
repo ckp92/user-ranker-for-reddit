@@ -37,6 +37,7 @@
 
 .review-field h4 {
   margin: 1vh 1vw;
+  letter-spacing: 1px;
 }
 
 .review-field p {
@@ -71,6 +72,10 @@
 
   .review-fields {
     width: 100%;
+  }
+
+  .review-field {
+    margin-bottom: 1vh;
   }
 
   .review-field h4 {
