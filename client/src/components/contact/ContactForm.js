@@ -33,7 +33,7 @@ class ContactForm extends Component {
           <h4>
             Alternatively you can send an email to{' '}
             <a
-              href="mailto:cpatel818@gmail.com?Subject=RE:%20Reddit%20User%20Ranker"
+              href="mailto:cpatel818@gmail.com?Subject=RE:%20User%20Ranker%20For%Reddit"
               target="_blank"
             >
               cpatel818@gmail.com

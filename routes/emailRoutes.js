@@ -15,7 +15,7 @@ module.exports = app => {
       // use 'PROD' or 'DEV' accordingly
       let str = `${process.env.NODE_ENV === 'production' ? 'PROD' : 'DEV'}`;
       // add app identifier
-      str += '-REDDIT-USER-RANKER-MESSAGE';
+      str += '-USER-RANKER-FOR-REDDIT-MESSAGE';
 
       return str;
     };
