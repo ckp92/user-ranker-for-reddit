@@ -35,13 +35,13 @@ class ContactFormReview extends Component {
 
   render() {
     return (
-      <div className="contact-form-review">
+      <div className="review">
         <div className="review-heading">
           <h1 className="title">Review and Send</h1>
         </div>
-        <div className="contact-form-review-content">
+        <div className="review-body">
           <h3>Does everything look OK?</h3>
-          <div className="review">{this.renderReview()}</div>
+          <div className="review-fields">{this.renderReview()}</div>
           <div className="review-buttons">
             <BlueButton text="Back" onClick={this.props.deactivateReview} />
             <BlueButton

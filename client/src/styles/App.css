@@ -6,12 +6,11 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   color: #00264d;
-  /* background-color: rgb(216, 236, 253); */
 }
 
 .container {
-  margin: 0;
-  padding: 0;
+  /* border: 1px solid black; */
+  margin: 0 5vw 2vh 5vw;
 }
 
 @media (max-width: 640px) {

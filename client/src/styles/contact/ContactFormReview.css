@@ -1,152 +1,126 @@
-.contact-form-review {
+.review {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
 }
 
 .review-heading {
   width: 100%;
-  padding: 0 5vw;
 }
 
-.contact-form-review-content {
+.review-body {
   border: 2px solid #00274d;
-  width: 90%;
   background-color: aliceblue;
+  width: 100%;
   padding: 2vh 0;
-  margin-bottom: 2vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.contact-form-review-content h3 {
-  align-self: center;
-  margin: 0;
-  text-align: center;
+.review-fields {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 1vh;
 }
 
-.review {
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .review-field {
-  /* border: 1px solid #00274d7c; */
   background-color: white;
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 1vh 0;
 }
 
-.review-field:last-of-type {
-  padding-bottom: 1vh;
-}
-
 .review-field h4 {
-  margin: 1vh 0 0 0;
+  margin: 1vh 1vw;
 }
 
-.body p {
-  margin: 1vh 0 0 0;
-  align-self: flex-start;
-  margin-left: 2vw;
+.review-field p {
+  margin: 0 1vw 1vh 1vw;
 }
 
 .review-buttons {
-  width: 50%;
+  width: 60%;
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
+  justify-content: space-between;
 }
 
 @media (max-width: 640px) {
-  .contact-form-review-content {
-    width: 100%;
-    border: none;
-    padding: 0;
-  }
-
   .review-heading {
-    padding: 0;
     text-align: center;
+    padding: 0;
   }
 
   .review-heading h1 {
-    margin: 2vh 0;
+    margin: 2vh 0 0 0;
     font-size: 190%;
   }
 
-  .contact-form-review-content h3 {
-    padding: 0 5vw;
-    text-align: center;
+  .review-body {
+    border: none;
+  }
+
+  .review-body h3 {
     font-size: 100%;
-    margin: 0;
+    margin: 0 0 1vh 0;
   }
 
-  .review-field {
-    width: 90%;
-    padding: 0.5vh 2vw;
+  .review-fields {
+    width: 100%;
   }
 
-  .review-field:last-of-type {
-    padding-bottom: 2vh;
+  .review-field h4 {
+    margin: 1vh 2vw;
   }
 
   .review-field p {
+    margin: 0.5vh 2vw;
     font-size: 90%;
   }
 
   .review-buttons {
-    margin-top: 1vh;
+    width: 100%;
   }
 }
 
 @media (max-height: 560px) {
-  .contact-form-review-content {
-    margin-bottom: 8vh;
+  .review-fields {
+    width: 90%;
+    padding-bottom: 1vh;
   }
 
-  .review-field {
-    width: 90%;
-    padding: 4vh 1vw;
+  .review-field h4 {
+    margin: 2vh 2vw;
   }
 
   .review-field p {
-    margin: 1vh 0 0 0;
-  }
-
-  .review-field:last-of-type {
-    padding-bottom: 4vh;
+    margin: 1vh 2vw;
   }
 
   .review-buttons {
-    margin-top: 2vh;
+    width: 90%;
+    margin-top: 1vh;
   }
 }
 
 @media (max-height: 280px) {
-  .contact-form-review-content {
-    margin-bottom: 16vh;
+  .review-fields {
+    padding-bottom: 2vh;
   }
 
-  .review-field {
-    width: 90%;
-    padding: 8vh 1vw;
+  .review-field h4 {
+    margin: 4vh 2vw;
   }
 
   .review-field p {
-    margin: 2vh 0 0 0;
-  }
-
-  .review-field:last-of-type {
-    padding-bottom: 8vh;
+    margin: 2vh 2vw;
   }
 
   .review-buttons {
-    margin-top: 4vh;
+    margin: 2vh 0 1vh 0;
   }
 }

@@ -16,7 +16,9 @@ const ContactField = ({
     <div className="contact-field">
       <label>{label}</label>
       {renderInput()}
-      <div className="error">{touched && error && !active ? error : ''}</div>
+      <div className="contact-error">
+        {touched && error && !active ? error : ''}
+      </div>
     </div>
   );
 };

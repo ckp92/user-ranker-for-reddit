@@ -18,21 +18,27 @@ class ContactForm extends Component {
   render() {
     return (
       <div className="contact-form">
-        <div className="heading">
-          <h1 className="title">Tell Me What You Think</h1>
+        <div className="contact-heading">
+          <h1 className="contact-title">Tell Me What You Think</h1>
         </div>
         <div className="contact-body">
           <h3>Ask a question, leave some feedback, or just say hi!</h3>
           <h3>You'll get a reply within 24 hours</h3>
           <form onSubmit={this.props.handleSubmit(this.props.activateReview)}>
             {this.renderFields()}
-            <div className="submit-button">
-              <BlueButton text="Next" type="submit" />
-            </div>
+            <BlueButton text="Next" type="submit" />
           </form>
         </div>
-        <div className="below-form">
-          <h4>Alternatively you can send an email to cpatel818@gmail.com</h4>
+        <div className="contact-bottom">
+          <h4>
+            Alternatively you can send an email to{' '}
+            <a
+              href="mailto:cpatel818@gmail.com?Subject=RE:%20Reddit%20User%20Ranker"
+              target="_blank"
+            >
+              cpatel818@gmail.com
+            </a>
+          </h4>
         </div>
       </div>
     );

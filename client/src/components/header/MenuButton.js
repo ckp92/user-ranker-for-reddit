@@ -17,7 +17,7 @@ class MenuButton extends Component {
 
     if (type === 'a') {
       return (
-        <a className="btn menu-button" href={path} target="blank">
+        <a className="btn menu-button" href={path} target="_blank">
           <i className={icon} />
           <h3 className="menu-button-content">{content}</h3>
         </a>
