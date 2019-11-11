@@ -1,7 +1,7 @@
 export const BRAND_OPTIONS = {
   path: '/',
-  icon: 'fab fa-reddit-alien fa-2x',
-  content: 'USER RANKER'
+  icon: 'far fa-chart-bar fa-2x',
+  content: 'USER RANKER FOR REDDIT'
 };
 
 export const MENU_OPTIONS = [
