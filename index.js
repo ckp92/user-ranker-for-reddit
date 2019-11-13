@@ -1,9 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const keys = require('./config/keys');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const keys = require("./config/keys");
 // Making Email model available. Don't need to assign to anything.
-require('./models/Email');
+require("./models/Email");
 
 // MONGOOSE CONFIG
 mongoose.connect(keys.mongoURI, {
@@ -11,33 +11,35 @@ mongoose.connect(keys.mongoURI, {
   useUnifiedTopology: true
 });
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => console.log('Database Connected'));
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => console.log("Database Connected"));
 
 // APP CONFIG
 const app = express();
 
 // to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // ROUTING
 // test
-app.get('/api', (req, res) =>
-  res.send({ apiHome: 'Welcome to the API route' })
+app.get("/api", (req, res) =>
+  res.send({ apiHome: "Welcome to the API route" })
 );
 
-// bring in emailRoutes and pass in 'app'
-require('./routes/emailRoutes')(app);
+// bring in routes and pass in 'app'
+require("./routes/emailRoutes")(app);
+require("./routes/searchRoutes")(app);
 
 // make express behave correctly in production environment
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // serve static files from the React app
-  app.use(express.static('client/build'));
+  app.use(express.static("client/build"));
 
   // tell express to serve up 'index.html' if it doesn't recognize the route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
