@@ -1,23 +1,23 @@
-.contact-field {
+.form-field {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 1vh 0;
 }
 
-.contact-field label {
+.form-field label {
   margin-bottom: 0.5vh;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-.contact-field input {
+.form-field input {
   border: 1px solid #00274d7c;
   padding: 1.1vh 1vw 1vh 1vw;
   outline: none;
 }
 
-.contact-field textarea {
+.form-field textarea {
   border: 1px solid #00264d7c;
   white-space: pre-line;
   padding: 1vh 1vw;
@@ -26,7 +26,15 @@
   outline: none;
 }
 
-.contact-field .contact-error {
+.form-field select {
+  border: 1px solid #00274d7c;
+  background-color: white;
+  padding: 1vh 1vw;
+  outline: none;
+}
+
+.form-field .form-error,
+.form-field .form-warning {
   margin-top: 0.5vh;
   color: rgba(255, 0, 0, 0.76);
   font-size: small;
@@ -35,49 +43,63 @@
 }
 
 @media (max-width: 640px) {
-  .contact-field input,
-  .contact-field textarea,
-  .contact-field label {
+  .form-field input,
+  .form-field textarea,
+  .form-field label,
+  .form-field select {
     width: 100%;
   }
 
-  .contact-field label {
+  .form-field label {
     text-align: left;
   }
 
-  .contact-field input {
+  .form-field input {
     padding: 1.5vh 2vw;
   }
 
-  .contact-field textarea {
+  .form-field textarea {
     padding: 1vh 2vw;
+  }
+  .form-field select {
+    padding: 1.5vh 2vw;
   }
 }
 
 @media (max-height: 560px) {
-  .contact-field input {
+  .form-field input {
     padding: 4vh 2vw 4vh 2vw;
     margin: 1vh 0;
   }
 
-  .contact-field textarea {
+  .form-field textarea {
     padding: 4vh 2vw;
     margin: 1vh 0 2vh 0;
     height: 40vh;
     line-height: 4vh;
   }
+
+  .form-field select {
+    padding: 3.5vh 2vw;
+    margin: 1vh 0;
+  }
 }
 
 @media (max-height: 280px) {
-  .contact-field input {
+  .form-field input {
     padding: 8vh 2vw 8vh 2vw;
     margin: 2vh 0;
   }
 
-  .contact-field textarea {
+  .form-field textarea {
     padding: 8vh 2vw;
     margin: 2vh 0 4vh 0;
     height: 80vh;
     line-height: 8vh;
+  }
+
+  .form-field select {
+    padding: 7vh 2vw;
+    margin: 2vh 0;
   }
 }

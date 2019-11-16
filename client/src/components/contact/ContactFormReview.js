@@ -1,10 +1,10 @@
-import '../../styles/contact/ContactFormReview.css';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { deactivateReview, sendEmail } from '../../actions';
-import formFields from './formFields';
-import BlueButton from '../BlueButton';
+import "../../styles/contact/ContactFormReview.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { deactivateReview, sendEmail } from "../../actions";
+import formFields from "./formFields";
+import BlueButton from "../BlueButton";
 
 class ContactFormReview extends Component {
   // for the message, create new p element for each linebreak
@@ -12,8 +12,8 @@ class ContactFormReview extends Component {
   // when email is sent it will appear just the way the user wrote it.
   formatFormValues = name => {
     const { formValues } = this.props;
-    if (name === 'body') {
-      return formValues.body.split('\n').map((line, i) => {
+    if (name === "body") {
+      return formValues.body.split("\n").map((line, i) => {
         return <p key={i}>{line}</p>;
       });
     } else {
@@ -35,22 +35,16 @@ class ContactFormReview extends Component {
 
   render() {
     return (
-      <div className="review">
-        <div className="review-heading">
-          <h1 className="title">Review and Send</h1>
-        </div>
-        <div className="review-body">
-          <h3>Does everything look OK?</h3>
-          <div className="review-fields">{this.renderReview()}</div>
-          <div className="review-buttons">
-            <BlueButton text="Back" onClick={this.props.deactivateReview} />
-            <BlueButton
-              text="Send"
-              onClick={() =>
-                this.props.sendEmail(this.props.formValues, this.props.history)
-              }
-            />
-          </div>
+      <div className="review-body">
+        <div className="review-fields">{this.renderReview()}</div>
+        <div className="review-buttons">
+          <BlueButton text="Back" onClick={this.props.deactivateReview} />
+          <BlueButton
+            text="Send"
+            onClick={() =>
+              this.props.sendEmail(this.props.formValues, this.props.history)
+            }
+          />
         </div>
       </div>
     );
@@ -61,10 +55,9 @@ const mapStateToProps = state => {
   return { formValues: state.form.contactForm.values };
 };
 
-export default connect(
-  mapStateToProps,
-  { deactivateReview, sendEmail }
-)(withRouter(ContactFormReview));
+export default connect(mapStateToProps, { deactivateReview, sendEmail })(
+  withRouter(ContactFormReview)
+);
 
 // contactFormReview doesn't know about react-router-dom, so it's difficult to redirect to homepage
 // so we use withRouter

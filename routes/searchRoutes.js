@@ -9,7 +9,7 @@ const expiresIn = 3300000;
 
 module.exports = app => {
   // GET POST DATA RROUTE
-  app.get("/api/search/posts", async (req, res) => {
+  app.post("/api/search/posts", async (req, res) => {
     // get new token if it has been longer than 55 mins since the last one was issued
     if (Date.now() - issuedAt >= expiresIn) {
       const newToken = await getBearerToken();
@@ -41,7 +41,7 @@ module.exports = app => {
   });
 
   // GET COMMENT DATA ROUTE
-  app.get("/api/search/comments", async (req, res) => {
+  app.post("/api/search/comments", async (req, res) => {
     // get new token if it has been longer than 55 mins since the last one was issued
     if (Date.now() - issuedAt >= expiresIn) {
       const newToken = await getBearerToken();

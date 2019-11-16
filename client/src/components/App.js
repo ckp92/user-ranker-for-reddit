@@ -1,11 +1,11 @@
-import '../styles/App.css';
-import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import "../styles/App.css";
+import React, { Component } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 
-import Header from './header/Header';
-import Landing from './Landing';
-import Contact from './contact/Contact';
-const Docs = () => <h1>Docs</h1>;
+import Header from "./header/Header";
+import Search from "./search/Search";
+import Docs from "./docs/Docs";
+import Contact from "./contact/Contact";
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
           <div>
             <Header />
             <div className="container">
-              <Route path="/" exact component={Landing} />
+              <Route path="/" exact component={Search} />
               <Route path="/docs" exact component={Docs} />
               <Route path="/contact" exact component={Contact} />
             </div>

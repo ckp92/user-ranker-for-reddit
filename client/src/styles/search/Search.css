@@ -1,0 +1,14 @@
+.search {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 640px) {
+  .search {
+    text-align: center;
+  }
+}

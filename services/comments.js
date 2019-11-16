@@ -71,7 +71,7 @@ module.exports = async (accessToken, subreddit, t) => {
     // Bulk-fetch all the individual arrays, in order, and return a single array of post objects
     await Promise.all(
       postIds.map(id => {
-        const uri = `https://oauth.reddit.com/r/${subreddit}/comments/${id}?sort=top&limit=500&depth=500`;
+        const uri = `https://oauth.reddit.com/r/${subreddit}/comments/${id}?sort=top&limit=500&depth=50`;
         return fetch(uri, options);
       })
     )

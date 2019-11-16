@@ -1,35 +1,20 @@
-.review {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.review-heading {
-  width: 100%;
-}
-
 .review-body {
-  border: 2px solid #00274d;
-  background-color: aliceblue;
   width: 100%;
-  padding: 2vh 0;
-  align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .review-fields {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
   margin-bottom: 1vh;
 }
 
 .review-field {
   background-color: white;
-  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 1vh 0;
@@ -51,29 +36,6 @@
 }
 
 @media (max-width: 640px) {
-  .review-heading {
-    text-align: center;
-    padding: 0;
-  }
-
-  .review-heading h1 {
-    margin: 2vh 0 0 0;
-    font-size: 190%;
-  }
-
-  .review-body {
-    border: none;
-  }
-
-  .review-body h3 {
-    font-size: 100%;
-    margin: 0 0 1vh 0;
-  }
-
-  .review-fields {
-    width: 100%;
-  }
-
   .review-field {
     margin-bottom: 1vh;
   }
@@ -94,8 +56,8 @@
 
 @media (max-height: 560px) {
   .review-fields {
-    width: 90%;
     padding-bottom: 1vh;
+    width: 90%;
   }
 
   .review-field h4 {
@@ -107,8 +69,8 @@
   }
 
   .review-buttons {
-    width: 90%;
     margin-top: 1vh;
+    width: 90%;
   }
 }
 

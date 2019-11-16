@@ -44,4 +44,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Listening @ ${PORT}`));
+const server = app.listen(PORT, () => console.log(`Listening @ ${PORT}`));
+
+// set timeout to 5 mins
+server.timeout = 300000;

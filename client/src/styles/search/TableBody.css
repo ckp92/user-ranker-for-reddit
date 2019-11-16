@@ -1,0 +1,11 @@
+tbody th {
+  padding: 1vh 1vw;
+}
+
+.white {
+  background-color: white;
+}
+
+.highlight {
+  background-color: yellow;
+}

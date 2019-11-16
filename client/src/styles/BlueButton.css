@@ -19,12 +19,26 @@
   .blue-button {
     padding: 2vh 4vw;
   }
+
+  .blue-button:hover {
+    background-color: #0079d3;
+  }
+  .blue-button:active {
+    background-color: #7fbce9;
+  }
 }
 
 @media (max-height: 560px) {
   .blue-button {
     padding: 4vh 4vw;
     font-size: 100%;
+  }
+
+  .blue-button:hover {
+    background-color: #0079d3;
+  }
+  .blue-button:active {
+    background-color: #7fbce9;
   }
 }
 
