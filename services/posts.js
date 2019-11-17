@@ -22,18 +22,24 @@ module.exports = async (accessToken, subreddit, t) => {
   // GET POSTS, EXTRACT EACH POST'S AUTHOR AND SCORE
   const getTopPosts = async (after = null) => {
     // use 'after' property (provided by reddit api) to get data fromm the next page
-    const res = await fetch(
-      `https://oauth.reddit.com/r/${subreddit}/top.json?sort=top&t=${t}&limit=100&after=${after ||
-        ""}`,
-      options
-    ).catch(e => console.log(e));
+    let res = null;
+    let data = null;
 
+    try {
+      res = await fetch(
+        `https://oauth.reddit.com/r/${subreddit}/top.json?sort=top&t=${t}&limit=100&after=${after ||
+          ""}`,
+        options
+      );
+
+      data = await res.json();
+    } catch (e) {
+      console.error(e);
+      data = { error: 500 };
+    }
     // ERROR CHECKING - BEARER TOKEN
     const tokenError = tokenErrorCheck(res.status);
     if (tokenError) return talliedScores.push(tokenError);
-
-    // if bearer token was ok, get the body of the response
-    const data = await res.json().catch(e => console.log(e));
 
     // ERROR CHECKING - DATA RECEIVED
     const dataError = dataErrorCheck(data);

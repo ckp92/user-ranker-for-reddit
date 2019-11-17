@@ -69,10 +69,21 @@ export const getPostData = values => async dispatch => {
     body: JSON.stringify(values)
   };
 
-  const res = await fetch("/api/search/posts", options).catch(e =>
-    console.error(e)
-  );
-  const data = await res.json().catch(e => console.error(e));
+  let data = null;
+
+  try {
+    const res = await fetch("/api/search/posts", options).catch(e =>
+      console.error(e)
+    );
+    data = await res.json().catch(e => console.error(e));
+  } catch (e) {
+    console.error(e);
+    data = {
+      err: "Internal Server Error",
+      msg:
+        "The server couldn't handle the load. Please try again with a shorter timespan or a smaller subreddit"
+    };
+  }
 
   dispatch({ type: GET_POST_DATA, payload: data });
 };
@@ -85,10 +96,19 @@ export const getCommentData = values => async dispatch => {
     body: JSON.stringify(values)
   };
 
-  const res = await fetch("/api/search/comments", options).catch(e =>
-    console.error(e)
-  );
-  const data = await res.json().catch(e => console.error(e));
+  let data = null;
+
+  try {
+    const res = await fetch("/api/search/comments", options);
+    data = await res.json();
+  } catch (e) {
+    console.error(e);
+    data = {
+      err: "Internal Server Error",
+      msg:
+        "The server couldn't handle the load. Please try again with a shorter timespan or a smaller subreddit"
+    };
+  }
 
   dispatch({ type: GET_COMMENT_DATA, payload: data });
 };

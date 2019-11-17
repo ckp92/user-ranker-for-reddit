@@ -25,6 +25,16 @@ module.exports = scoresList => {
     return { name: author, ...values[i] };
   });
 
+  // if no data
+  if (!talliedScoresArray.length) {
+    return {
+      err: "Bad Request",
+      msg:
+        "This is usually because of a typo, an invalid subreddit, or a subreddit with no posts",
+      status: 400
+    };
+  }
+
   const dataObj = {};
 
   // will sort data and return 500 results

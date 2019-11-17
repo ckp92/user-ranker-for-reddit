@@ -26,17 +26,25 @@ module.exports = async (accessToken, subreddit, t) => {
   // GET POSTS, EXTRACT IDs
   const getPostIds = async (after = null) => {
     // use 'after' property (provided by reddit api) to get data from the next page
-    const res = await fetch(
-      `https://oauth.reddit.com/r/${subreddit}/top.json?sort=top&t=${t}&limit=100&after=${after ||
-        ""}`,
-      options
-    ).catch(e => console.log(e));
+    let res = null;
+    let data = null;
+
+    try {
+      res = await fetch(
+        `https://oauth.reddit.com/r/${subreddit}/top.json?sort=top&t=${t}&limit=100&after=${after ||
+          ""}`,
+        options
+      );
+      data = await res.json();
+    } catch (e) {
+      console.error(e);
+      // send server error status code
+      data = { error: 500 };
+    }
 
     // ERROR CHECKING - BEARER TOKEN
     const tokenError = tokenErrorCheck(res.status);
     if (tokenError) return talliedScores.push(tokenError);
-
-    const data = await res.json().catch(e => console.log(e));
 
     // ERROR CHECKING - DATA RECEIVED
     const dataError = dataErrorCheck(data);
@@ -71,7 +79,7 @@ module.exports = async (accessToken, subreddit, t) => {
     // Bulk-fetch all the individual arrays, in order, and return a single array of post objects
     await Promise.all(
       postIds.map(id => {
-        const uri = `https://oauth.reddit.com/r/${subreddit}/comments/${id}?sort=top&limit=500&depth=50`;
+        const uri = `https://oauth.reddit.com/r/${subreddit}/comments/${id}.json?sort=top&limit=500&depth=50`;
         return fetch(uri, options);
       })
     )
@@ -80,7 +88,14 @@ module.exports = async (accessToken, subreddit, t) => {
       .then(posts => posts.map(post => post[1].data.children))
       // commentObjectArray === array of [arrays of parent comment objects]
       .then(commentObjectArray => getScores(commentObjectArray))
-      .catch(e => console.log(e));
+      .catch(e => {
+        console.error(e);
+        talliedScores.push({
+          err: "Internal Server Error",
+          msg:
+            "The server couldn't handle the load. Please try again with a shorter timespan or a smaller subreddit"
+        });
+      });
   };
 
   // At this point, array passed into getScores will be:
