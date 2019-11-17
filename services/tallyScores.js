@@ -1,4 +1,6 @@
-module.exports = (scoresList, globalArr) => {
+const sortData = require("../services/sortData");
+
+module.exports = scoresList => {
   // display status msg
   console.log("Tallying up the data");
 
@@ -23,6 +25,11 @@ module.exports = (scoresList, globalArr) => {
     return { name: author, ...values[i] };
   });
 
-  // NOTE: arr is currently unsorted. Will sort on the frontend
-  globalArr.push(...talliedScoresArray);
+  const dataObj = {};
+
+  // will sort data and return 500 results
+  dataObj.karmaDesc = sortData(talliedScoresArray, "karmaDesc").slice(0, 500);
+  dataObj.countDesc = sortData(talliedScoresArray, "countDesc").slice(0, 500);
+
+  return dataObj;
 };

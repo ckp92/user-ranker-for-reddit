@@ -61,8 +61,9 @@ module.exports = async (accessToken, subreddit, t) => {
     // recursive fn will use 'after' to keep fetching posts until reddit api says 'after: null'
     if (after) await getTopPosts(after);
 
-    // if 'after' has been assigned 'null', we know there are no more posts, so we tally and return
-    if (!after) tallyScores(untalliedScores, talliedScores);
+    // if 'after' has been assigned 'null', we know there are no more posts, so we tally, sort and push to global array
+    // final format will be a array with 1 obj with 2 keyval pairs
+    if (!after) talliedScores.push(tallyScores(untalliedScores));
   };
 
   // CALL THE SERVICE

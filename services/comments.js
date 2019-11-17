@@ -104,8 +104,9 @@ module.exports = async (accessToken, subreddit, t) => {
       }
     });
 
-    // tally the scores
-    tallyScores(untalliedScores, talliedScores);
+    // tally the scores & push to global arr
+    // final format will be a array with 1 obj with 2 keyval pairs
+    talliedScores.push(tallyScores(untalliedScores));
   };
 
   // CALL THE SERVICE

@@ -1,13 +1,27 @@
 import "../../styles/search/TableBody.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import sortData from "../../utils/sortData";
 
 class TableBody extends Component {
   renderContent = () => {
-    const { sort, data } = this.props;
+    const { sort, karmaDesc, countDesc } = this.props;
+
+    // data to be used will be assigned to this var
+    let selectedData = [];
+
+    // select which key of data to use
+    // destructure to not mutate
+    if (sort.includes("karma")) {
+      selectedData.push(...karmaDesc);
+    } else selectedData.push(...countDesc);
+
+    // reverse array if 'Asc'
+    if (sort.includes("Asc")) selectedData.reverse();
+
+    console.log(sort, selectedData);
+
     // data will be sorted according to state
-    return sortData(data, sort).map(({ name, score, count }, i) => {
+    return selectedData.map(({ name, score, count }, i) => {
       let className = "";
       let rank = "";
 
@@ -22,7 +36,7 @@ class TableBody extends Component {
       if (sort.includes("Desc")) {
         rank = i + 1;
       } else {
-        rank = data.length - i;
+        rank = selectedData.length - i;
       }
       return (
         <tr className={className} key={name}>
@@ -40,8 +54,10 @@ class TableBody extends Component {
   }
 }
 
-const mapStateToProps = ({ sort, data }) => {
-  return { sort, data };
+// data is found in data[0] can destructure into mapStateToProps
+
+const mapStateToProps = ({ sort, data: [{ karmaDesc, countDesc }] }) => {
+  return { sort, karmaDesc, countDesc };
 };
 
 export default connect(mapStateToProps)(TableBody);

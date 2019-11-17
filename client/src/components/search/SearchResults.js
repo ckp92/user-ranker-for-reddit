@@ -109,7 +109,6 @@ class SearchResults extends Component {
   };
 
   render() {
-    console.log("Data: ", this.props.data);
     return (
       <div className="search-results">
         <div className="results-heading">{this.renderHeading()}</div>

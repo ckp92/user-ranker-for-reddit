@@ -4,7 +4,7 @@ const sortDataLogic = (arr, key, option) => {
   return temp.sort((a, b) => b[key] - a[key]);
 };
 
-export default (data, sort) => {
+module.exports = (data, sort) => {
   switch (sort) {
     case "karmaAsc":
       return sortDataLogic(data, "score", "ASC");
