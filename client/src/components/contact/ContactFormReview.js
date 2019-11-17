@@ -2,11 +2,23 @@ import "../../styles/contact/ContactFormReview.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { deactivateReview, sendEmail } from "../../actions";
+import { toggleReview, sendEmail } from "../../actions";
 import formFields from "./formFields";
 import BlueButton from "../BlueButton";
 
 class ContactFormReview extends Component {
+  // render the preview for each form field
+  renderReview = () => {
+    return formFields.map(({ name, label }) => {
+      return (
+        <div key={name} className={`review-field ${name}`}>
+          <h4>{label}</h4>
+          {this.formatFormValues(name)}
+        </div>
+      );
+    });
+  };
+
   // for the message, create new p element for each linebreak
   // just for this review component. it won't change actual formValues.
   // when email is sent it will appear just the way the user wrote it.
@@ -21,29 +33,16 @@ class ContactFormReview extends Component {
     }
   };
 
-  // render the preview for each form field
-  renderReview = () => {
-    return formFields.map(({ name, label }) => {
-      return (
-        <div key={name} className={`review-field ${name}`}>
-          <h4>{label}</h4>
-          {this.formatFormValues(name)}
-        </div>
-      );
-    });
-  };
-
   render() {
+    const { toggleReview, sendEmail, formValues, history } = this.props;
     return (
       <div className="review-body">
         <div className="review-fields">{this.renderReview()}</div>
         <div className="review-buttons">
-          <BlueButton text="Back" onClick={this.props.deactivateReview} />
+          <BlueButton text="Back" onClick={() => toggleReview(false)} />
           <BlueButton
             text="Send"
-            onClick={() =>
-              this.props.sendEmail(this.props.formValues, this.props.history)
-            }
+            onClick={() => sendEmail(formValues, history)}
           />
         </div>
       </div>
@@ -55,7 +54,7 @@ const mapStateToProps = state => {
   return { formValues: state.form.contactForm.values };
 };
 
-export default connect(mapStateToProps, { deactivateReview, sendEmail })(
+export default connect(mapStateToProps, { toggleReview, sendEmail })(
   withRouter(ContactFormReview)
 );
 

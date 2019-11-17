@@ -1,11 +1,9 @@
-import { POST_SEARCH, COMMENT_SEARCH } from "../actions/types";
+import { SET_SEARCH_TYPE } from "../actions/types";
 
 export default (state = null, action) => {
   switch (action.type) {
-    case POST_SEARCH:
-      return "posts";
-    case COMMENT_SEARCH:
-      return "comments";
+    case SET_SEARCH_TYPE:
+      return action.payload;
     default:
       return state;
   }

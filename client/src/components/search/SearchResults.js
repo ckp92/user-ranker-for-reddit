@@ -17,38 +17,40 @@ class SearchResults extends Component {
         </React.Fragment>
       );
     } else {
-      // search has returned an error
-      if (searchType && data.err) {
-        return (
-          <React.Fragment>
-            <h2>Oops - there's nothing here!</h2>
-            <h4>{data.msg}</h4>
-          </React.Fragment>
-        );
-      }
-      // search has returned empty array (some errors still make it past backend b/c of the recursive nature of the fetch posts function)
-      else if (searchType && !data.length) {
-        return (
-          <React.Fragment>
-            <h2>Oops - there's nothing here!</h2>
-            <h4>
-              It's usually a typo, or an empty/invalid subreddit, but it could
-              also be a server timeout
-            </h4>
-          </React.Fragment>
-        );
-      }
-      // if data has been received successfully
-      else if (searchType && data) {
-        return (
-          <React.Fragment>
-            <h2>
-              {searchType.charAt(0).toUpperCase() + searchType.slice(1)}{" "}
-              Rankings
-            </h2>
-            <h4> Click 'Karma' or 'Count' to change the sorting</h4>
-          </React.Fragment>
-        );
+      if (searchType && data) {
+        // search has returned an error
+        if (data.err) {
+          return (
+            <React.Fragment>
+              <h2>Oops - there's nothing here!</h2>
+              <h4>{data.msg}</h4>
+            </React.Fragment>
+          );
+        }
+        // search has returned empty array (some errors still make it past backend b/c of the recursive nature of the fetch posts function)
+        else if (!data.length) {
+          return (
+            <React.Fragment>
+              <h2>Oops - there's nothing here!</h2>
+              <h4>
+                It's usually a typo, or an empty/invalid subreddit, but it could
+                also be a server timeout
+              </h4>
+            </React.Fragment>
+          );
+        }
+        // if data has been received successfully
+        else {
+          return (
+            <React.Fragment>
+              <h2>
+                {searchType.charAt(0).toUpperCase() + searchType.slice(1)}{" "}
+                Rankings
+              </h2>
+              <h4> Click 'Karma' or 'Count' to change the sorting</h4>
+            </React.Fragment>
+          );
+        }
       }
     }
   };
@@ -56,7 +58,7 @@ class SearchResults extends Component {
   // will only render if we have valid data AND we are not currently searching
   // allows it to disappear while searching, if user decides to search again
   renderTable = () => {
-    const { currentlySearching, searchType, data, sort } = this.props;
+    const { currentlySearching, searchType, data } = this.props;
     if (!currentlySearching && searchType && data && data.length) {
       return (
         <table>
@@ -120,5 +122,7 @@ class SearchResults extends Component {
 const mapStateToProps = ({ currentlySearching, searchType, data, sort }) => {
   return { currentlySearching, searchType, data, sort };
 };
+
+// delete sort is not used
 
 export default connect(mapStateToProps, { toggleSort })(SearchResults);

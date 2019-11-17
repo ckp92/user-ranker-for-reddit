@@ -17,6 +17,10 @@ form {
   width: 13vw;
 }
 
+.currently-searching .blue-button {
+  background-color: #7fbce9;
+}
+
 @media (max-width: 640px) {
   form {
     width: 100%;

@@ -4,10 +4,8 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import {
-  startSearching,
-  stopSearching,
-  setTypePost,
-  setTypeComment,
+  setCurrentlySearching,
+  setSearchType,
   getPostData,
   getCommentData,
   clearResults
@@ -23,16 +21,30 @@ class SearchForm extends Component {
     });
   };
 
+  // will block out search buttons when currently searching for some results
+  renderClassName = () => {
+    const { currentlySearching } = this.props;
+    if (currentlySearching) return "search-buttons currently-searching";
+    return "search-buttons";
+  };
+
+  onSubmitPosts = formValues => this.onSubmit(formValues, "posts");
+
+  onSubmitComments = formValues => this.onSubmit(formValues, "comments");
+
   onSubmit = (formValues, type) => {
     const {
+      currentlySearching,
       data,
-      startSearching,
-      setTypeComment,
-      setTypePost,
+      setCurrentlySearching,
+      setSearchType,
       getCommentData,
       getPostData,
       clearResults
     } = this.props;
+
+    // don't search again if we are currently searching
+    if (currentlySearching) return;
 
     console.log(type, "selected");
     console.log(formValues);
@@ -40,27 +52,24 @@ class SearchForm extends Component {
     // clear previous search results if any
     if (data) clearResults();
     // change currentlySearching state to 'true'
-    startSearching();
+    setCurrentlySearching(true);
+
+    // set search type state
+    setSearchType(type);
 
     // fetch data according to search type 'comments' or 'posts'
     if (type === "comments") {
-      setTypeComment();
       getCommentData(formValues);
     } else {
-      setTypePost();
       getPostData(formValues);
     }
   };
-
-  onSubmitPosts = formValues => this.onSubmit(formValues, "posts");
-
-  onSubmitComments = formValues => this.onSubmit(formValues, "comments");
 
   render() {
     return (
       <form>
         {this.renderFields()}
-        <div className="search-buttons">
+        <div className={this.renderClassName()}>
           <BlueButton
             onClick={this.props.handleSubmit(this.onSubmitPosts)}
             type="submit"
@@ -94,15 +103,13 @@ const warn = formValues => {
   return warnings;
 };
 
-const mapStateToProps = ({ data }) => {
-  return { data };
+const mapStateToProps = ({ currentlySearching, data }) => {
+  return { currentlySearching, data };
 };
 
 const connected = connect(mapStateToProps, {
-  startSearching,
-  stopSearching,
-  setTypePost,
-  setTypeComment,
+  setCurrentlySearching,
+  setSearchType,
   getPostData,
   getCommentData,
   clearResults

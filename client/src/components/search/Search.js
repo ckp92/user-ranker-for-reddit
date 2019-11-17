@@ -2,16 +2,30 @@ import "../../styles/search/Search.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { stopSearching } from "../../actions";
+import {
+  clearResults,
+  setCurrentlySearching,
+  setSearchType
+} from "../../actions";
 import Shell from "../Shell";
 import SearchForm from "./SearchForm";
 import SearchResults from "./SearchResults";
 
 class Search extends Component {
   componentWillUnmount = () => {
-    this.props.stopSearching();
+    const {
+      currentlySearching,
+      data,
+      searchType,
+      setCurrentlySearching,
+      setSearchType
+    } = this.props;
+    if (currentlySearching) setCurrentlySearching(false);
+    if (searchType) setSearchType(null);
+    if (data) clearResults();
   };
 
+  // search type will have truthy value as soon as user clicks search button
   renderResults = () => {
     if (this.props.searchType) return <SearchResults />;
   };
@@ -53,8 +67,12 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = ({ searchType }) => {
-  return { searchType };
+const mapStateToProps = ({ currentlySearching, data, searchType }) => {
+  return { currentlySearching, data, searchType };
 };
 
-export default connect(mapStateToProps, { stopSearching })(Search);
+export default connect(mapStateToProps, {
+  clearResults,
+  setCurrentlySearching,
+  setSearchType
+})(Search);

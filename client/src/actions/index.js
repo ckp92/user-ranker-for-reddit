@@ -1,14 +1,11 @@
 import {
   CLICK_HAMBURGER,
   CLOSE_HEADER_NOTIFICATION,
-  ACTIVATE_REVIEW,
-  DEACTIVATE_REVIEW,
+  TOGGLE_REVIEW,
   SEND_EMAIL,
   CLOSE_MODAL,
-  START_SEARCHING,
-  STOP_SEARCHING,
-  POST_SEARCH,
-  COMMENT_SEARCH,
+  SET_CURRENTLY_SEARCHING,
+  SET_SEARCH_TYPE,
   GET_POST_DATA,
   GET_COMMENT_DATA,
   CLEAR_RESULTS,
@@ -25,14 +22,9 @@ export const closeHeaderNotification = () => {
   return { type: CLOSE_HEADER_NOTIFICATION };
 };
 
-// activate preview mode
-export const activateReview = () => {
-  return { type: ACTIVATE_REVIEW };
-};
-
-// deactivate preview mode
-export const deactivateReview = () => {
-  return { type: DEACTIVATE_REVIEW };
+// toggle review mode
+export const toggleReview = value => {
+  return { type: TOGGLE_REVIEW, payload: value };
 };
 
 // send contact email (will activate modal)
@@ -59,24 +51,14 @@ export const closeModal = () => {
   return { type: CLOSE_MODAL };
 };
 
-// set currentlySearching to true
-export const startSearching = () => {
-  return { type: START_SEARCHING };
+// set currentlySearching according to argument
+export const setCurrentlySearching = value => {
+  return { type: SET_CURRENTLY_SEARCHING, payload: value };
 };
 
-// set currentlySearching to false
-export const stopSearching = () => {
-  return { type: STOP_SEARCHING };
-};
-
-// set searchType to posts
-export const setTypePost = () => {
-  return { type: POST_SEARCH };
-};
-
-// set searchType to comments
-export const setTypeComment = () => {
-  return { type: COMMENT_SEARCH };
+// set searchType according to argument
+export const setSearchType = type => {
+  return { type: SET_SEARCH_TYPE, payload: type };
 };
 
 // get post data

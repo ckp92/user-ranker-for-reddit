@@ -2,12 +2,16 @@ import "../../styles/contact/ContactForm.css";
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { activateReview } from "../../actions";
+import { toggleReview } from "../../actions";
 import formFields from "./formFields";
 import FormField from "../FormField";
 import BlueButton from "../BlueButton";
 
 class ContactForm extends Component {
+  onSubmit = () => {
+    this.props.toggleReview(true);
+  };
+
   renderFields = () => {
     return formFields.map(fields => {
       return <Field {...fields} key={fields.name} component={FormField} />;
@@ -16,7 +20,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit(this.props.activateReview)}>
+      <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         {this.renderFields()}
         <BlueButton text="Next" type="submit" />
       </form>
@@ -42,7 +46,7 @@ const validate = values => {
   return errors;
 };
 
-const connected = connect(null, { activateReview })(ContactForm);
+const connected = connect(null, { toggleReview })(ContactForm);
 
 export default reduxForm({
   form: "contactForm",

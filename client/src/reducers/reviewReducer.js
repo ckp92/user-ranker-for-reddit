@@ -1,11 +1,9 @@
-import { ACTIVATE_REVIEW, DEACTIVATE_REVIEW } from '../actions/types';
+import { TOGGLE_REVIEW } from "../actions/types";
 
 export default (state = false, action) => {
   switch (action.type) {
-    case ACTIVATE_REVIEW:
-      return true;
-    case DEACTIVATE_REVIEW:
-      return false;
+    case TOGGLE_REVIEW:
+      return action.payload;
     default:
       return state;
   }
