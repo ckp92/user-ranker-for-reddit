@@ -18,8 +18,6 @@ class TableBody extends Component {
     // reverse array if 'Asc'
     if (sort.includes("Asc")) selectedData.reverse();
 
-    console.log(sort, selectedData);
-
     // data will be sorted according to state
     return selectedData.map(({ name, score, count }, i) => {
       let className = "";

@@ -8,6 +8,7 @@ import {
   setSearchType,
   getPostData,
   getCommentData,
+  toggleSort,
   clearResults
 } from "../../actions";
 import searchFields from "./searchFields";
@@ -40,22 +41,21 @@ class SearchForm extends Component {
       setSearchType,
       getCommentData,
       getPostData,
+      toggleSort,
       clearResults
     } = this.props;
 
     // don't search again if we are currently searching
     if (currentlySearching) return;
 
-    console.log(type, "selected");
-    console.log(formValues);
-
-    // clear previous search results if any
+    // clears screen on each new search
     if (data) clearResults();
-    // change currentlySearching state to 'true'
-    setCurrentlySearching(true);
 
-    // set search type state
+    setCurrentlySearching(true);
     setSearchType(type);
+
+    // set togglesort so it stays the same each time
+    toggleSort("karmaDesc");
 
     // fetch data according to search type 'comments' or 'posts'
     if (type === "comments") {
@@ -112,6 +112,7 @@ const connected = connect(mapStateToProps, {
   setSearchType,
   getPostData,
   getCommentData,
+  toggleSort,
   clearResults
 })(SearchForm);
 
