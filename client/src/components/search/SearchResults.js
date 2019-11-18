@@ -12,7 +12,7 @@ class SearchResults extends Component {
       return (
         <React.Fragment>
           <h2>Fetching Results</h2>
-          <h4>This can take a couple minutes</h4>
+          <h4>This can take a few minutes</h4>
           <div className="loader"></div>
         </React.Fragment>
       );
@@ -33,7 +33,7 @@ class SearchResults extends Component {
             <React.Fragment>
               <h2>Oops - there's nothing here!</h2>
               <h4>
-                It's usually a typo, or an empty/invalid subreddit, but it could
+                It's usually a typo or an empty/invalid subreddit, but it could
                 also be a server timeout
               </h4>
             </React.Fragment>

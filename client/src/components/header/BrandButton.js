@@ -1,6 +1,6 @@
-import '../../styles/BrandButton.css';
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import "../../styles/header/BrandButton.css";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class BrandButton extends Component {
   renderContent = () => {

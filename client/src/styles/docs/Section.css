@@ -1,0 +1,64 @@
+.section {
+  width: 150%;
+}
+
+.section ul {
+  margin: 0;
+}
+
+.section ul > li {
+  margin: 2vh 0;
+}
+
+.section ol li {
+  margin: 1vh 0;
+}
+
+.bold,
+a {
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .section:first-of-type {
+    border-top: 1px solid black;
+  }
+  .section {
+    border-bottom: 1px solid black;
+    margin: 0;
+    width: 100%;
+  }
+
+  .section ul {
+    padding-left: 4vw;
+  }
+
+  .section ul > li {
+    margin: 4vh 0;
+    text-align: left;
+  }
+
+  .section ul > li:first-of-type {
+    margin-top: 2vh;
+  }
+}
+
+@media (max-height: 560px) {
+  .section {
+    width: 95%;
+  }
+
+  .section ul {
+    padding-left: 2vw;
+  }
+
+  .section ul > li {
+    margin: 4vh 0;
+  }
+}
+
+@media (max-height: 280px) {
+  .section ul > li {
+    margin: 8vh 0;
+  }
+}

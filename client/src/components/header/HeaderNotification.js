@@ -1,7 +1,7 @@
-import '../../styles/HeaderNotification.css';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { closeHeaderNotification } from '../../actions';
+import "../../styles/header/HeaderNotification.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { closeHeaderNotification } from "../../actions";
 
 class HeaderNotification extends Component {
   render() {
@@ -17,9 +17,6 @@ class HeaderNotification extends Component {
   }
 }
 
-export default connect(
-  null,
-  { closeHeaderNotification }
-)(HeaderNotification);
+export default connect(null, { closeHeaderNotification })(HeaderNotification);
 
 // when 'x' button is clicked, will call closeHeaderNotification to change state of 'headerNotificationOn' to false, which will cause it to unmount.

@@ -1,14 +1,14 @@
-import '../../styles/Header.css';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { clickHamburger, closeModal } from '../../actions';
-import { BRAND_OPTIONS, MENU_OPTIONS } from './options';
+import "../../styles/header/Header.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { clickHamburger, closeModal } from "../../actions";
+import { BRAND_OPTIONS, MENU_OPTIONS } from "./options";
 
-import BrandButton from './BrandButton';
-import MenuButton from './MenuButton';
-import HeaderNotification from './HeaderNotification';
-import DropdownModal from './DropdownModal';
-import Modal from '../Modal';
+import BrandButton from "./BrandButton";
+import MenuButton from "./MenuButton";
+import HeaderNotification from "./HeaderNotification";
+import DropdownModal from "./DropdownModal";
+import Modal from "../Modal";
 
 class Header extends Component {
   // Render Desktop-Size Menu Buttons
@@ -20,8 +20,8 @@ class Header extends Component {
 
   // Make hamburger darker when clicked
   toggleHamburgerColor = () => {
-    if (this.props.hamburgerOn) return 'btn hamburger-on';
-    return 'btn';
+    if (this.props.hamburgerOn) return "btn hamburger-on";
+    return "btn";
   };
 
   // Show dropdown menu when hamburgerOn state === true
@@ -66,11 +66,11 @@ class Header extends Component {
   renderModal = () => {
     const { emailStatus, closeModal } = this.props;
     switch (emailStatus) {
-      case 'success':
+      case "success":
         return (
           <Modal title="Yay!" message="Message Sent" onDismiss={closeModal} />
         );
-      case 'error':
+      case "error":
         return (
           <Modal
             title="Oops!"
@@ -132,7 +132,4 @@ const mapStateToProps = ({
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { clickHamburger, closeModal }
-)(Header);
+export default connect(mapStateToProps, { clickHamburger, closeModal })(Header);

@@ -1,8 +1,8 @@
-import '../../styles/DropdownModal.css';
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { MENU_OPTIONS } from './options';
-import MenuButton from './MenuButton';
+import "../../styles/header/DropdownModal.css";
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { MENU_OPTIONS } from "./options";
+import MenuButton from "./MenuButton";
 
 class Modal extends Component {
   renderContent = () => {
@@ -15,7 +15,7 @@ class Modal extends Component {
       <div onClick={this.props.onDismiss} className="dropdown-modal">
         <div className="dropdown-modal-buttons">{this.renderContent()}</div>
       </div>,
-      document.querySelector('#modal')
+      document.querySelector("#modal")
     );
   }
 }

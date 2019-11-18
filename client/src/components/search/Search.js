@@ -34,7 +34,7 @@ class Search extends Component {
     if (!this.props.searchType) {
       return (
         <React.Fragment>
-          * Please ensure you enter a valid subreddit. If you are unsure,{" "}
+          Please ensure you enter a valid subreddit. If you are unsure,{" "}
           <a
             href="https://www.reddit.com/subreddits"
             target="_blank"
@@ -54,7 +54,7 @@ class Search extends Component {
         <Shell title="Search Page!">
           <div className="inner-content">
             <h3>
-              See which Redditors have the most karma in a given subreddit*
+              See which Redditors have the most karma in a given subreddit
             </h3>
             <h3> Choose between Post and Comment data</h3>
             <SearchForm />

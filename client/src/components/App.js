@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./header/Header";
 import Search from "./search/Search";
 import Docs from "./docs/Docs";
+import CV from "./cv/CV";
 import Contact from "./contact/Contact";
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
             <div className="container">
               <Route path="/" exact component={Search} />
               <Route path="/docs" exact component={Docs} />
+              <Route path="/cv" exact component={CV} />
               <Route path="/contact" exact component={Contact} />
             </div>
           </div>
