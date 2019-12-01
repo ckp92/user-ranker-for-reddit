@@ -31,7 +31,7 @@ class Contact extends Component {
           <React.Fragment>
             Alternatively you can send an email to{" "}
             <a
-              href="mailto:cpatel818@gmail.com?Subject=RE:%20User%20Ranker%20For%Reddit"
+              href="mailto:cpatel818@gmail.com?Subject=RE:%20User%20Ranker%20For%20Reddit"
               target="_blank"
               rel="noopener noreferrer"
             >
