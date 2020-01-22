@@ -1,10 +1,9 @@
 import "../../styles/cv/CV.css";
-import React, { Component } from "react";
+import React from "react";
+import ContactRequest from "../ContactRequest";
 
-class CV extends Component {
-  render() {
-    return <h1 className="cv">CV!</h1>;
-  }
-}
+const CV = () => {
+  return <ContactRequest contentHeader="CV" contentMain="CV" />;
+};
 
 export default CV;

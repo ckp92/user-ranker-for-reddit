@@ -7,6 +7,7 @@ import Search from "./search/Search";
 import Docs from "./docs/Docs";
 import CV from "./cv/CV";
 import Contact from "./contact/Contact";
+import Github from "./github/Github";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
               <Route path="/docs" exact component={Docs} />
               <Route path="/cv" exact component={CV} />
               <Route path="/contact" exact component={Contact} />
+              <Route path="/github" exact component={Github} />
             </div>
           </div>
         </BrowserRouter>

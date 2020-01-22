@@ -18,8 +18,8 @@ export const MENU_OPTIONS = [
     content: "CV"
   },
   {
-    type: "a",
-    path: "https://github.com/ckp92/reddit-user-ranker",
+    type: "link",
+    path: "/github",
     icon: "fab fa-github-square fa-lg",
     content: "GitHub"
   },
