@@ -1,6 +1,62 @@
 import React from "react";
 export default [
   {
+    heading: "General",
+    list: [
+      <div className="list-item">
+        Reddit is a popular social-media / forum with many different subreddits
+        (sub-forums). Users start discussions via links or self-texts and can
+        rank each other's posts and comments by either 'upvoting' or
+        'downvoting'.{" "}
+        <span className="bold">Scores on Reddit are known as 'karma'</span>.
+      </div>,
+      <div className="list-item">
+        While Reddit allows us to see the top posts on a subreddit, the top
+        comments on a post, and users' individual profiles,{" "}
+        <span className="bold">
+          it doesn't let us rank the users of a certain subreddit by their total
+          karma in that subreddit.
+        </span>{" "}
+        This is where User Ranker For Reddit comes in!
+      </div>,
+      <div className="list-item">
+        Ranker For Reddit allows us to enter a subreddit and see user rankings
+        for that subreddit. We can choose whether we want to rank by post or
+        comment karma, and also in what timespan.
+      </div>,
+      <div className="list-item">
+        Post-data searches are calculated by getting the highest-ranking posts
+        within the specified timespan (upto a maximum of 1000 posts) and
+        tallying up the users, their total karma, and their post counts.
+      </div>,
+      <div className="list-item">
+        Comment-data searches also get the highest ranking posts within the
+        timespan, but instead of recording the karma of the actual posts, the
+        karma of the parent comments (upto 500) is tallied up,{" "}
+        <span className="bold">
+          and a recursive function is used to check for replies, and to tally up
+          the karma for them.
+        </span>
+      </div>,
+      <div className="list-item">
+        Results are presented sorted by 'karma' in descending order by default,
+        but can be switched to ascending order. Results can also be sorted by
+        'count' data, in any order.
+      </div>,
+      <div className="list-item">This webapp took two weeks to complete.</div>,
+
+      <div className="list-item">The frontend uses React and Redux.</div>,
+
+      <div className="list-item">
+        The backend is written in Nodejs using the Express server.
+      </div>,
+
+      <div className="list-item">
+        The webapp uses Mongodb because the data it stores is non-relational.
+      </div>
+    ]
+  },
+  {
     heading: "Useage",
     list: [
       <div className="list-item">
@@ -21,7 +77,6 @@ export default [
         </a>
         .
       </div>,
-
       <div className="list-item">
         <span className="bold">Please ensure subreddit is valid.</span> For this
         to be the case, it must exist, and contain at least one post (which has
@@ -46,22 +101,6 @@ export default [
         manually by a user or by them deleting their account). An interesting
         correlation is how the bigger the subreddit, the more '[deleted]' posts
         there are!
-      </div>
-    ]
-  },
-  {
-    heading: "General",
-    list: [
-      <div className="list-item">This webapp took two weeks to complete.</div>,
-
-      <div className="list-item">The frontend uses React and Redux.</div>,
-
-      <div className="list-item">
-        The backend is written in Nodejs using the Express server.
-      </div>,
-
-      <div className="list-item">
-        The webapp uses Mongodb because the data it stores is non-relational.
       </div>
     ]
   },
