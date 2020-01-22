@@ -18,12 +18,6 @@ export const MENU_OPTIONS = [
     content: "CV"
   },
   {
-    type: "link",
-    path: "/",
-    icon: "fas fa-folder fa-lg",
-    content: "Portfolio"
-  },
-  {
     type: "a",
     path: "https://github.com/ckp92/reddit-user-ranker",
     icon: "fab fa-github-square fa-lg",
