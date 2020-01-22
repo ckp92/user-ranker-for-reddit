@@ -5,6 +5,7 @@ const FormField = ({
   input,
   label,
   type,
+  placeholder,
   meta: { active, error, touched, warning }
 }) => {
   const renderInput = () => {
@@ -23,7 +24,7 @@ const FormField = ({
           </select>
         );
       default:
-        return <input {...input} />;
+        return <input placeholder={placeholder} {...input} />;
     }
   };
   return (
