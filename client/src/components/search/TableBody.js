@@ -39,7 +39,16 @@ class TableBody extends Component {
       return (
         <tr className={className} key={name}>
           <th>{rank}</th>
-          <th>{name}</th>
+          <th>
+            {" "}
+            <a
+              href={`https://www.reddit.com/user/${name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {name}
+            </a>
+          </th>
           <th>{score}</th>
           <th>{count}</th>
         </tr>
