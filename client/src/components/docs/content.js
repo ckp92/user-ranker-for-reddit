@@ -43,7 +43,7 @@ export default [
         but can be switched to ascending order. Results can also be sorted by
         'count' data, in any order.
       </div>,
-      <div className="list-item">This webapp took two weeks to complete.</div>,
+      <div className="list-item">This web app took two weeks to complete.</div>,
 
       <div className="list-item">The frontend uses React and Redux.</div>,
 
@@ -52,7 +52,7 @@ export default [
       </div>,
 
       <div className="list-item">
-        The webapp uses Mongodb because the data it stores is non-relational.
+        The web app uses Mongodb because the data it stores is non-relational.
       </div>
     ]
   },
@@ -108,7 +108,8 @@ export default [
     heading: "What Went Well",
     list: [
       <div className="list-item">
-        Connecting Redux and using the store to add functionality to the webapp.
+        Connecting Redux and using the store to add functionality to the web
+        app.
       </div>,
 
       <div className="list-item">
@@ -156,10 +157,10 @@ export default [
     list: [
       <div className="list-item">
         Styling. <span className="bold">CSS is not my strong suit.</span> The
-        webapp is responsive and has a navbar that turns into a dropdown menu on
-        smaller devices, but there it one weird thing I don't know how to fix.
-        When the on-screen keyboard is being used on a smartphone, sizing of
-        buttons and form inputs changes. The reason for this is that I used a
+        web app is responsive and has a navbar that turns into a dropdown menu
+        on smaller devices, but there it one weird thing I don't know how to
+        fix. When the on-screen keyboard is being used on a smartphone, sizing
+        of buttons and form inputs changes. The reason for this is that I used a
         lot of vh and vw to set sizes. Going forward I will need to use a wider
         range of sizing units.
       </div>,
