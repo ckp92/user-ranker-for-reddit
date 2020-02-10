@@ -83,7 +83,13 @@ module.exports = async (accessToken, subreddit, t) => {
         return fetch(uri, options);
       })
     )
-      .then(responses => Promise.all(responses.map(res => res.json())))
+      .then(responses => {
+        console.log("Converting to json");
+        console.log("Memory before:", process.memoryUsage());
+        let res = Promise.all(responses.map(res => res.json()));
+        console.log("Memory after", process.memoryUsage());
+        return res;
+      })
       // post[1].data.children === array of all parent comment objects for that specific post
       .then(posts => getScores(posts))
       // .then(posts => posts.map(post => post[1].data.children))
