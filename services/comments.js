@@ -85,9 +85,10 @@ module.exports = async (accessToken, subreddit, t) => {
     )
       .then(responses => Promise.all(responses.map(res => res.json())))
       // post[1].data.children === array of all parent comment objects for that specific post
-      .then(posts => posts.map(post => post[1].data.children))
+      .then(posts => getScores(posts))
+      // .then(posts => posts.map(post => post[1].data.children))
       // commentObjectArray === array of [arrays of parent comment objects]
-      .then(commentObjectArray => getScores(commentObjectArray))
+      // .then(commentObjectArray => getScores(commentObjectArray))
       .catch(e => {
         console.error(e);
         talliedScores.push({
@@ -110,8 +111,9 @@ module.exports = async (accessToken, subreddit, t) => {
   const getScores = parentArr => {
     // display status message
     console.log("Extracting Comment Scores And Comment-Reply Scores");
-
-    parentArr.forEach(childArr => {
+    // post[1].data.children
+    parentArr.forEach(post => {
+      const childArr = post[1].data.children;
       if (childArr.length) {
         childArr.forEach(commentObj =>
           getScoresRecursively(commentObj, untalliedScores)
