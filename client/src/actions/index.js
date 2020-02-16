@@ -81,7 +81,7 @@ export const getPostData = values => async dispatch => {
     data = {
       err: "Internal Server Error",
       msg:
-        "The server couldn't handle the load. Please try again with a shorter timespan or a smaller subreddit"
+        "The server ran out of memory. Please try again with a shorter timespan or a smaller/less active subreddit"
     };
   }
 
@@ -106,7 +106,7 @@ export const getCommentData = values => async dispatch => {
     data = {
       err: "Internal Server Error",
       msg:
-        "The server couldn't handle the load. Please try again with a shorter timespan or a smaller subreddit"
+        "The server ran out of memory. Please try again with a shorter timespan or a smaller/less active subreddit"
     };
   }
 

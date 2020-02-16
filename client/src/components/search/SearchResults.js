@@ -18,7 +18,7 @@ class SearchResults extends Component {
       );
     } else {
       if (searchType && data) {
-        // search has returned an error
+        // search has returned an error due to memory being full
         if (data.err) {
           return (
             <React.Fragment>

@@ -98,7 +98,7 @@ const warn = formValues => {
   const warnings = {};
   if (formValues.t === "year" || formValues.t === "all")
     warnings.t =
-      "WARNING: Large timespans on very active subreddits may cause the server to timeout due to large volumes of data";
+      "WARNING: Large timespans on very active subreddits may cause the server to run out of memory because this web app uses the free tier of Heroku";
 
   return warnings;
 };
